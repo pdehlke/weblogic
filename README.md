@@ -53,8 +53,16 @@ SkyTouch standard tooling to automate the entire process.
 
 ## Requirements
 
-This module requires the puppet forge module biemond-orawls and all of its
-dependencies
+This module requires the following forge modules and their dependencies:
+
+```
+biemond-orawls
+biemond-jdk-7
+hajee-easy-type
+erwbgy-limits
+fiddyspence-sysctl
+reidmv-yamlfile
+```
 
 ## Installation
 
