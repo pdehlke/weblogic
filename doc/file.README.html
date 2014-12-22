@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="puppet_manifest_list_link"
+        href="puppet_manifest_list.html">
+      Puppet Manifest List
+    </a>
+  
+    <a class="full_list_link" id="puppet_plugin_list_link"
+        href="puppet_plugin_list.html">
+      Puppet Plugin List
+    </a>
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h2>Synopsis</h2>
+
+<p>A puppet module for installing WebLogic and all its prerequisites and
+configuring WebLogic domains.</p>
+
+<h2>Code Example</h2>
+
+<p>A typical use case looks for a single node looks like this:</p>
+
+<pre class="code ruby"><code class="ruby">node 'weblogic1' {
+
+  Class[weblogic::java] -&gt; Class[orawls::weblogic]
+
+  class {'weblogic::os':}
+  class {'weblogic::java':}
+  class {'orawls::weblogic':}
+  class {'weblogic::domain':}
+  class {'weblogic::nodemanager':}
+  class {'weblogic::startwls':}
+  class {'weblogic::packdomain':}
+
+}
+</code></pre>
+
+<p>The classes themselves are written wtih explicit dependency callouts, meaning
+that we could write that node definition with nothing but the 
+&#39;weblogic::packdomain&#39; definition. That&#39;s particularly terse, and likely
+unhelpful to new users, so we call out each class. Classes are defined
+in dependency order for clarity; remember that puppet is not a procedural
+language and dependencies must be defined in the classes themselves or in
+the node definition (as we do here with the orawls::weblogic &lt;- weblogic::java
+declatation)</p>
+
+<h2>Motivation</h2>
+
+<p>Weblogic is a large and complicated application delivery system with
+substantial touch points required to configure. This process has typically
+taken many days to complete when done by hand. This module leverages several
+prewritten puppet modules for common tasks (installing java, creating users &amp;
+groups, installing the weblogic base software itself), and then applies 
+SkyTouch standard tooling to automate the entire process.</p>
+
+<h2>Requirements</h2>
+
+<p>This module requires the puppet forge module biemond-orawls and all of its
+dependencies</p>
+
+<h2>Installation</h2>
+
+<p>Install this module into /etc/puppetlabs/puppet/modules (Puppet Enterprise) or
+/etc/puppet/modules (puppet open source) on your puppet master. The module
+mostly relies on hiera for configuration, and a sample .yaml should be
+included with the source code. Modify the yaml as appropriate for the target
+server and weblogic domain.</p>
+
+<h2>Tests</h2>
+
+<p>No tests written so far.</p>
+
+<h2>Contributors</h2>
+
+<p>Pete Ehlke <a href="mailto:pete.ehlke@aboveproperty.com">pete.ehlke@aboveproperty.com</a>: Initial author</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Sun Dec 21 18:22:24 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
