@@ -38,13 +38,11 @@
 #
 # === Metadata
 # @Last Modified by:   pde
-# @Last Modified time: 2014-12-22 07:55:30
+# @Last Modified time: 2014-12-22 07:56:03
 
-class weblogic::packdomain {
-  require weblogic::startwls
-
+class weblogic::copydomain {
+  require orawls::weblogic, weblogic::bsu
   $default_params = {}
-  $pack_domain_instances = hiera('pack_domain_instances', {})
-  create_resources('orawls::packdomain',$pack_domain_instances, $default_params)
-
+  $copy_instances = hiera('copy_instances', {})
+  create_resources('orawls::copydomain',$copy_instances, $default_params)
 }
