@@ -1,0 +1,42 @@
+---
+
+logoutput:                      &logoutput          true
+orawls::weblogic::log_output:   *logoutput
+
+wls_os_user:              &wls_os_user              "weblogic"
+wls_weblogic_user:        &wls_weblogic_user        "weblogic"
+wls_weblogic_home_dir:    &wls_weblogic_home_dir    "/opt/oracle/middleware12c/wlserver_12.1"
+wls_middleware_home_dir:  &wls_middleware_home_dir  "/opt/oracle/middleware12c"
+
+# when you have just one domain on a server
+domain_name:                &domain_name                "qaua1Domain"
+domain_adminserver:         &domain_adminserver         "AdminServer"
+domain_adminserver_address: &domain_adminserver_address "admin"
+domain_adminserver_port:    &domain_adminserver_port    7101
+domain_nodemanager_port:    &domain_nodemanager_port    5556
+domain_wls_password:        &domain_wls_password        "webl0gic"
+
+orautils::osDomainParam:          *domain_name
+orautils::osDomainPathParam:      "/opt/oracle/wlsdomains/domains/qaua1Domain"
+orautils::nodeMgrPathParam:       "/opt/oracle/wlsdomains/domains/qaua1Domain/bin"
+orautils::nodeMgrAddressParam:    *domain_adminserver_address
+orautils::wlsPasswordParam:       *domain_wls_password
+orautils::wlsAdminServerParam:    *domain_adminserver
+
+orautils::nodeMgrAddressParam:    "node1"
+
+# used by nodemanager, control and domain creation
+wls_custom_trust:                  &wls_custom_trust              false
+
+# copy domains to other nodes
+copy_instances:
+  'wlsDomain':
+     log_output:              *logoutput
+
+# create and startup the nodemanager
+nodemanager_instances:
+  'nodemanager':
+    log_output:                            *logoutput
+    nodemanager_address:                   "node1"
+    custom_identity:                       false
+
