@@ -1,3 +1,52 @@
+# == Class: weblogic::os
+#
+# Configures a bare machine for a WebLogic installation. Creates the weblogic
+# user and group, sets up appropriate ulimits for that user, sets up recommended
+# kernel tuning parameters, disables iptables, and ensures that binutils and
+# unzip (which we will need later) are installed.
+#
+# creates /etc/hosts entries on all systems, if the 'hosts' hash is defined
+# in hiera (typically in common.yaml). This is extremely convenient, as the sample
+# hiera files reference nodes as 'admin', 'node1', and 'node2'. If the hosts hash
+# looks like:
+#
+# hosts:
+#   'localhost':
+#     ip:                "127.0.0.1"
+#     host_aliases:      'localhost.localdomain,localhost4,localhost4.localdomain4'
+#   'admin.example.com':
+#     ip:                "10.10.10.10"
+#     host_aliases:      'admin'
+#   'node1.example.com':
+#     ip:                "10.10.10.100"
+#     host_aliases:      'node1'
+#   'node2.example.com':
+#     ip:                "10.10.10.200"
+#     host_aliases:      'node2'
+#
+# then aliases for 'admin', 'node1', and 'node2' are created in /etc/hosts, and no
+# further customization for host/machine names is needed.
+# === Parameters
+#
+# None currently. user and group really should be parameterized, or got from hiera.
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'weblogic::os':}
+#
+# === Authors
+#
+# @Author: pde
+# @Date:   2014-12-23 05:17:48
+# @Last Modified by:   pde
+# @Last Modified time: 2014-12-23 07:46:20
+#
+# === Copyright
+#
+# Copyright 2015 Above Property LLC, unless otherwise noted.
+#
 class weblogic::os {
 
   $default_params = {}

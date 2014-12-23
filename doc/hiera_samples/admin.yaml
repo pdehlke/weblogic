@@ -231,7 +231,7 @@ file_persistence_store_instances:
     targettype:
       - 'Server'
 
-jmsserver_instances:
+jmssver_instances:
    'jmsServer1':
      ensure:              'present'
      target:
@@ -359,3 +359,15 @@ datasource_instances:
       url:                         "jdbc:oracle:thin:@dbagent2.alfa.local:1521/test.oracle.com"
       user:                        'hr'
       usexa:                       '1'
+
+libdir:
+    '/opt/oracle/wlsdomains/domains/qaua1Domain/lib':
+      source:    'puppet:///modules/weblogic/lib'
+      recurse:   'true'
+      owner:     'weblogic'
+      group:     'weblogic'
+    '/opt/oracle/wlsdomains/domains/qaua1Domain':
+      source:   'puppet:///modules/weblogic/conf'
+      recurse:  'true'
+      owner:    'weblogic'
+      group:    'weblogic'

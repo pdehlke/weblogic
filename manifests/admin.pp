@@ -1,3 +1,29 @@
+# == Class: weblogic::admin
+#
+# This class declares all of the resources necessary to produce a
+# functioning weblogic domain and admin server.
+#
+# === Parameters
+#
+# No parameters. All configuration is done for each included class in hiera.
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'weblogic::admin':}
+#
+# === Authors
+#
+# @Author: pde
+# @Date:   2014-12-23 05:17:55
+# @Last Modified by:   pde
+# @Last Modified time: 2014-12-23 06:15:26
+#
+# === Copyright
+#
+# Copyright 2015 Above Property LLC, unless otherwise noted.
+#
 class weblogic::admin {
 
   include weblogic::os
@@ -15,8 +41,6 @@ class weblogic::admin {
   include weblogic::managed_servers
   include weblogic::managed_servers_channels
   include weblogic::datasources
-  #include weblogic::libs
-  #include weblogic::properties_files
   include weblogic::clusters
   include weblogic::virtual_hosts
   include weblogic::workmanager_constraints

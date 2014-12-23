@@ -1,3 +1,30 @@
+# == Class: weblogic::java
+#
+# Installs a jdk in /usr/java and sets it as the default. Installs
+# /etc/profile.d/java to set $JAVA_HOME and $PATH globally.
+#
+# === Parameters
+#
+# This class is a simple wrapper around biemond-jdk7. It should be
+# refactored to make use of hiera.
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'weblogic::java':}
+#
+# === Authors
+#
+# @Author: pde
+# @Date:   2014-12-23 05:17:55
+# @Last Modified by:   pde
+# @Last Modified time: 2014-12-23 06:13:35
+#
+# === Copyright
+#
+# Copyright 2015 Above Property LLC, unless otherwise noted.
+#
 class weblogic::java {
    require os
 

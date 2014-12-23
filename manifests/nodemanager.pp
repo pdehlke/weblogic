@@ -1,3 +1,36 @@
+# == Class: weblogic::nodemanager
+#
+# Wrapper around biemond-orawls::nodemanager. Creates and starts
+# the nodemanager for WebLogic domains.
+#
+# === Parameters
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'weblogic::nodemanager': }
+#
+# in hiera:
+#
+# # create and startup the nodemanager
+# nodemanager_instances:
+#   'nodemanager':
+#     log_output:                            *logoutput
+#     custom_identity:                       false
+#     nodemanager_address:                   *domain_adminserver_address
+#
+# === Authors
+#
+# @Author: pde
+# @Date:   2014-12-23 05:17:48
+# @Last Modified by:   pde
+# @Last Modified time: 2014-12-23 07:59:23
+#
+# === Copyright
+#
+# Copyright 2015 Above Property LLC, unless otherwise noted.
+#
 class weblogic::nodemanager {
   require orawls::weblogic, weblogic::domains
 
