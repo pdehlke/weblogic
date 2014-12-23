@@ -88,10 +88,47 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::nodemanager</h2>
+
+<p>Wrapper around biemond-orawls::nodemanager. Creates and starts the
+nodemanager for WebLogic domains.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::nodemanager': }</code></pre>
+
+<p>in hiera: # create and startup the nodemanager nodemanager_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'nodemanager':
+  log_output:                            *logoutput
+  custom_identity:                       false
+  nodemanager_address:                   *domain_adminserver_address</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

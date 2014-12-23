@@ -88,10 +88,59 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::authentication_providers</h2>
+
+<p>Wrapper that instantiates the wls_authentication_providers type from
+biemond-orawls.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::authentication_providers':}</code></pre>
+
+<p>in hiera: authentication_provider_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'DefaultAuthenticator':
+  ensure:             'present'
+  control_flag:       'SUFFICIENT'
+'DefaultIdentityAsserter':
+  ensure:             'present'
+  providerclassname:  'weblogic.security.providers.authentication.DefaultIdentityAsserter'
+  attributes:         'DigestReplayDetectionEnabled;UseDefaultUserNameMapper;DefaultUserNameMapperAttributeType;ActiveTypes'
+  attributesvalues:   '1;1;CN;AuthenticatedUser::X.509'
+#ldap will be the first listed provider
+'ldap':
+  ensure:             'present'
+  control_flag:       'SUFFICIENT'
+  providerclassname:  'weblogic.security.providers.authentication.LDAPAuthenticator'
+  attributes:         'Principal;Host;Port;CacheTTL;CacheSize;MaxGroupMembershipSearchLevel;SSLEnabled'
+  attributesvalues:   'ldapuser;ldapserver;389;60;1024;4;1'
+  order:              '0'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

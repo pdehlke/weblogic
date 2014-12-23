@@ -88,10 +88,58 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::jms_module_cfs</h2>
+
+<p>Wrapper that instantiates the wls_jms_connection_factory type from
+biemond-orawls.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::jms_module_cfs': }</code></pre>
+
+<p>in hiera: jms_connection_factory_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'jmsClusterModule:cf':
+    ensure:             'present'
+    jmsmodule:          'jmsClusterModule'
+    defaulttargeting:   '0'
+    jndiname:           'jms/cf'
+    subdeployment:      'wlsServers'
+    transactiontimeout: '3600'
+    xaenabled:          '0'
+'jmsClusterModule:cf2':
+    ensure:             'present'
+    jmsmodule:          'jmsClusterModule'
+    defaulttargeting:   '1'
+    jndiname:           'jms/cf2'
+    transactiontimeout: '3600'
+    xaenabled:          '1'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

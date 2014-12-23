@@ -88,10 +88,49 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::startwls</h2>
+
+<p>Wrapper around biemond-orawls::control. Starts weblogic server.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::startwls':}</code></pre>
+
+<p>in hiera: # startup adminserver for extra configuration control_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'startWLSAdminServer':
+   domain_name:          *domain_name
+   server_type:          'admin'
+   target:               'Server'
+   server:               *domain_adminserver
+   action:               'start'
+   log_output:           *logoutput</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:55</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

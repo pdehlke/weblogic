@@ -78,31 +78,38 @@ configuring WebLogic domains.</p>
 
 <h2>Code Example</h2>
 
-<p>A typical use case looks for a single node looks like this:</p>
+<p>A typical use case looks for an admin node looks like this:</p>
 
-<pre class="code ruby"><code class="ruby">node 'weblogic1' {
+<pre class="code ruby"><code class="ruby">node 'admin' {
 
-  Class[weblogic::java] -&gt; Class[orawls::weblogic]
-
-  class {'weblogic::os':}
-  class {'weblogic::java':}
-  class {'orawls::weblogic':}
-  class {'weblogic::domain':}
-  class {'weblogic::nodemanager':}
-  class {'weblogic::startwls':}
-  class {'weblogic::packdomain':}
+  class {'weblogic::admin':}
 
 }
 </code></pre>
 
-<p>The classes themselves are written wtih explicit dependency callouts, meaning
-that we could write that node definition with nothing but the 
-&#39;weblogic::packdomain&#39; definition. That&#39;s particularly terse, and likely
-unhelpful to new users, so we call out each class. Classes are defined
-in dependency order for clarity; remember that puppet is not a procedural
-language and dependencies must be defined in the classes themselves or in
-the node definition (as we do here with the orawls::weblogic &lt;- weblogic::java
-declatation)</p>
+<p>And a managed server node:</p>
+
+<pre class="code ruby"><code class="ruby">node 'node1' {
+
+  class {'weblogic::node':}
+
+}
+</code></pre>
+
+<p>See manifests/admin.pp and manifests/node.pp for how these expand. Each class has its
+set of dependencies expicitly called within the class file, making this module very clean
+to instantiate. All variables should be set in hiera; see hieradata/ for examples. Note
+that one should likely modify hiera.yaml and add a domain specific hierarchy, so we could
+have:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_hostname'>hostname</span>
+<span class='id identifier rubyid_wlsdomain'>wlsdomain</span>
+<span class='id identifier rubyid_environment'>environment</span>
+<span class='id identifier rubyid_common'>common</span>
+</code></pre>
+
+<p>Making it possible to set up, for example, the admin server for the pms domain in the
+g6test environment without interfering with othere servers, domains, and environments.</p>
 
 <h2>Motivation</h2>
 
@@ -115,8 +122,15 @@ SkyTouch standard tooling to automate the entire process.</p>
 
 <h2>Requirements</h2>
 
-<p>This module requires the puppet forge module biemond-orawls and all of its
-dependencies</p>
+<p>This module requires the following forge modules and their dependencies:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_biemond'>biemond</span><span class='op'>-</span><span class='id identifier rubyid_orawls'>orawls</span>
+<span class='id identifier rubyid_biemond'>biemond</span><span class='op'>-</span><span class='id identifier rubyid_jdk'>jdk</span><span class='op'>-</span><span class='int'>7</span>
+<span class='id identifier rubyid_hajee'>hajee</span><span class='op'>-</span><span class='id identifier rubyid_easy'>easy</span><span class='op'>-</span><span class='id identifier rubyid_type'>type</span>
+<span class='id identifier rubyid_erwbgy'>erwbgy</span><span class='op'>-</span><span class='id identifier rubyid_limits'>limits</span>
+<span class='id identifier rubyid_fiddyspence'>fiddyspence</span><span class='op'>-</span><span class='id identifier rubyid_sysctl'>sysctl</span>
+<span class='id identifier rubyid_reidmv'>reidmv</span><span class='op'>-</span><span class='id identifier rubyid_yamlfile'>yamlfile</span>
+</code></pre>
 
 <h2>Installation</h2>
 
@@ -136,7 +150,7 @@ server and weblogic domain.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

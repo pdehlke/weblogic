@@ -88,10 +88,55 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::machines</h2>
+
+<p>Wrapper that instantiates the wls_machine type from biemond-orawls.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::machines':}</code></pre>
+
+<p>in hiera: Node1 will use default as wls_setting identifier Node2 will use
+domain2 as wls_setting identifier machines_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'Node1':
+  ensure:         'present'
+  listenaddress:  '10.10.10.100'
+  listenport:     '5556'
+  machinetype:    'UnixMachine'
+  nmtype:         'SSL'
+'domain2/Node2':
+  ensure:         'present'
+  listenaddress:  '10.10.10.200'
+  listenport:     '5556'
+  machinetype:    'UnixMachine'
+  nmtype:         'SSL'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

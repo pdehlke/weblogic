@@ -88,10 +88,68 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::foreign_server_entries_objects</h2>
+
+<p>Wrapper that instantiates the wls_foreign_server_object from
+biemond-orawls.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::foreign_server_entries_objects':}</code></pre>
+
+<p>in hiera: foreign_server_object_instances: 'jmsClusterModule:Jboss:CF':</p>
+
+<pre class="code ruby"><code class="ruby">ensure:         'present'
+localjndiname:  'jms/jboss/CF'
+object_type:    'connectionfactory'
+remotejndiname: 'jms/Remote/CF'</code></pre>
+
+<p>'jmsClusterModule:Jboss:JBossQ':</p>
+
+<pre class="code ruby"><code class="ruby">ensure:         'present'
+localjndiname:  'jms/jboss/Queue'
+object_type:    'destination'
+remotejndiname: 'jms/Remote/Queue'</code></pre>
+
+<p>'jmsClusterModule:AQForeignServer:XAQueueCF':</p>
+
+<pre class="code ruby"><code class="ruby">ensure:         'present'
+localjndiname:  'jms/XAQueueCF'
+object_type:    'connectionfactory'
+remotejndiname: 'XAQueueConnectionFactory'</code></pre>
+
+<p>'jmsClusterModule:AQForeignServer:TestQueue':</p>
+
+<pre class="code ruby"><code class="ruby">ensure:         'present'
+localjndiname:  'jms/aq/TestQueue'
+object_type:    'destination'
+remotejndiname: 'Queues/TestQueue'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

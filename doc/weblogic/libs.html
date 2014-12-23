@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Hostclass: weblogic::datasource
+  Hostclass: weblogic::libs
   
     &mdash; Documentation by YARD 0.8.7.6
   
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!weblogic/datasource.html";
+  framesUrl = "../frames.html#!weblogic/libs.html";
 </script>
 
 
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (d)</a> &raquo;
+    <a href="../_index.html">Index (l)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../weblogic.html" title="weblogic (hostclass)">weblogic</a></span></span>
      &raquo; 
-    <span class="title">datasource</span>
+    <span class="title">libs</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -73,7 +73,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Hostclass: weblogic::datasource
+    <div id="content"><h1>Hostclass: weblogic::libs
   
   
   
@@ -83,15 +83,65 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">manifests/datasource.pp</dd>
+    <dd class="r1 last">manifests/libs.pp</dd>
   
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::libs</h2>
+
+<p>Copies extra libraries and other files into a WebLogic domain directory.
+Gets file locations, sourecs, and other variables from hiera. Simple
+implementation of a puppet File type; all File variables can be supplied in
+the hiera definition. Be sure to correctly set owner and group, or WebLogic
+may be unable to configure itself at runtime. Properties files should be
+templatized to avoid duplication on the puppet master.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::libs':}</code></pre>
+
+<p>in hiera: libdir:</p>
+
+<pre class="code ruby"><code class="ruby">'/opt/oracle/wlsdomains/domains/qaua1Domain/lib':
+  source:    'puppet:///modules/weblogic/lib'
+  recurse:   'true'
+  owner:     'weblogic'
+  group:     'weblogic'
+'/opt/oracle/wlsdomains/domains/qaua1Domain':
+  source:   'puppet:///modules/weblogic/conf'
+  recurse:  'true'
+  owner:    'weblogic'
+  group:    'weblogic'</code></pre>
+
+<p>Note that most of these values should be inherited from existing hiera
+aliases (*wls_os_user, *wls_os_group, etc)</p>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:55</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

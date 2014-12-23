@@ -88,10 +88,65 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::os</h2>
+
+<p>Configures a bare machine for a WebLogic installation. Creates the weblogic
+user and group, sets up appropriate ulimits for that user, sets up
+recommended kernel tuning parameters, disables iptables, and ensures that
+binutils and unzip (which we will need later) are installed. creates
+/etc/hosts entries on all systems, if the 'hosts' hash is defined in hiera
+(typically in common.yaml). This is extremely convenient, as the sample
+hiera files reference nodes as 'admin', 'node1', and 'node2'. If the hosts
+hash looks like: hosts:</p>
+
+<pre class="code ruby"><code class="ruby">'localhost':
+  ip:                &quot;127.0.0.1&quot;
+  host_aliases:      'localhost.localdomain,localhost4,localhost4.localdomain4'
+'admin.example.com':
+  ip:                &quot;10.10.10.10&quot;
+  host_aliases:      'admin'
+'node1.example.com':
+  ip:                &quot;10.10.10.100&quot;
+  host_aliases:      'node1'
+'node2.example.com':
+  ip:                &quot;10.10.10.200&quot;
+  host_aliases:      'node2'</code></pre>
+
+<p>then aliases for 'admin', 'node1', and 'node2' are created in /etc/hosts,
+and no further customization for host/machine names is needed.</p>
+
+<h3>Parameters</h3>
+
+<p>None currently. user and group really should be parameterized, or got from
+hiera.</p>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::os':}</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

@@ -88,10 +88,50 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::saf_remote_context_objects</h2>
+
+<p>Wrapper to instantiate the wls_saf_remote_context type from biemond-orawls</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::saf_remote_context_objects':}</code></pre>
+
+<p>in hiera: saf_remote_context_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'jmsClusterModule:RemoteSAFContext-0':
+   ensure:            'present'
+   connect_url:       't3://10.10.10.10:7001'
+   weblogic_user:     'weblogic'
+   weblogic_password: 'weblogic1'
+'jmsClusterModule:RemoteSAFContext-1':
+   ensure:            'present'
+   connect_url:       't3://10.10.10.10:7001'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:55 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

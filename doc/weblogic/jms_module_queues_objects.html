@@ -88,10 +88,77 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::jms_module_queues_objects</h2>
+
+<p>Wrapper that instantiates the wls_jsm_queue type from biemond-orawls.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::jms_module_queues_objects':}</code></pre>
+
+<p>in hiera: jms_queue_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'jmsClusterModule:ErrorQueue':
+  ensure:                   'present'
+  distributed:              '1'
+  expirationpolicy:         'Discard'
+  jndiname:                 'jms/ErrorQueue'
+  redeliverydelay:          '-1'
+  redeliverylimit:          '-1'
+  subdeployment:            'jmsServers'
+  defaulttargeting:         '0'
+  timetodeliver:            '-1'
+  timetolive:               '-1'
+'jmsClusterModule:Queue1':
+  ensure:                   'present'
+  distributed:              '1'
+  errordestination:         'ErrorQueue'
+  expirationpolicy:         'Redirect'
+  jndiname:                 'jms/Queue1'
+  redeliverydelay:          '2000'
+  redeliverylimit:          '3'
+  subdeployment:            'jmsServers'
+  defaulttargeting:         '0'
+  timetodeliver:            '-1'
+  timetolive:               '300000'
+'jmsClusterModule:Queue2':
+  ensure:                   'present'
+  distributed:              '1'
+  expirationloggingpolicy:  '%header%%properties%'
+  expirationpolicy:         'Log'
+  jndiname:                 'jms/Queue2'
+  redeliverydelay:          '2000'
+  redeliverylimit:          '3'
+  subdeployment:            'jmsServers'
+  defaulttargeting:         '0'
+  timetodeliver:            '-1'
+  timetolive:               '300000'</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>

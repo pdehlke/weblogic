@@ -88,10 +88,53 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2>Class: weblogic::opatch</h2>
+
+<p>Wrapper around biemond-orawls::opatch. Installs oracle Opatches.</p>
+
+<h3>Parameters</h3>
+
+<h3>Variables</h3>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby">class { 'weblogic::opatch':}</code></pre>
+
+<p>in hiera: opatch_instances:</p>
+
+<pre class="code ruby"><code class="ruby">'16175470':
+   ensure:                   &quot;present&quot;
+   oracle_product_home_dir:  &quot;/opt/oracle/middleware12c&quot;
+   patch_id:                 &quot;16175470&quot;
+   patch_file:               &quot;p16175470_121200_Generic.zip&quot;
+   jdk_home_dir              &quot;/usr/java/jdk1.7.0_45&quot;
+   os_user:                  &quot;oracle&quot;
+   os_group:                 &quot;dba&quot;
+   download_dir:             &quot;/data/install&quot;
+   source:                   &quot;/vagrant&quot;
+   log_output:               true</code></pre>
+
+<h3>Authors</h3>
+
+<p>@Author: pde @Date:   2014-12-23 05:17:48</p>
+
+<h3>Copyright</h3>
+
+<p>Copyright 2015 Above Property LLC, unless otherwise noted.</p>
+
+
+  </div>
 </div>
+<div class="tags">
+  
+
+</div></div>
 
     <div id="footer">
-  Generated on Sun Dec 21 18:22:24 2014 by
+  Generated on Tue Dec 23 08:08:54 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>
